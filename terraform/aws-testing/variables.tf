@@ -40,7 +40,7 @@ variable "username" {
   default     = "myuser"
   description = "User name"
 }
-variable "count" {
+variable "dbinstancecount" {
   default     = "1"
   description = "Number of DB Instances"
 }
