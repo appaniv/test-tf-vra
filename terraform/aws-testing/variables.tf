@@ -40,6 +40,10 @@ variable "username" {
   default     = "myuser"
   description = "User name"
 }
+variable "count" {
+  default     = "1"
+  description = "Number of DB Instances"
+}
 
 variable "password" {
   description = "password, provide through your ENV variables"

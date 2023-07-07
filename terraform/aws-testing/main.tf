@@ -74,7 +74,7 @@ resource "aws_rds_cluster" "terraform-rds-cluster" {
 }
 
 resource "aws_rds_cluster_instance" "rds_instance" {
-  count              = 2
+  count              = var.count
   identifier         = "aurora-cluster-demo-${count.index}"
   cluster_identifier = aws_rds_cluster.terraform-rds-cluster.id
   instance_class     = "db.serverless"
