@@ -63,3 +63,38 @@ output "public_ip" {
 
 
 
+
+## RDS Cluster with 2 instance 
+resource "aws_rds_cluster" "terraform-rds-cluster" {
+  cluster_identifier = "rds-cluster"
+  engine             = "aurora-postgresql"
+  engine_mode        = "provisioned"
+  engine_version     = "13.6"
+  database_name      = var.database_name
+  master_username    = var.master_username
+  master_password    = var.master_password
+	skip_final_snapshot = "true"
+
+  serverlessv2_scaling_configuration {
+    max_capacity = 1.0
+    min_capacity = 0.5
+  }
+}
+
+resource "aws_rds_cluster_instance" "rds_instance" {
+  count              = 2
+  identifier         = "aurora-cluster-demo-${count.index}"
+  cluster_identifier = aws_rds_cluster.terraform-rds-cluster.id
+  instance_class     = "db.serverless"
+  engine             = aws_rds_cluster.terraform-rds-cluster.engine
+  engine_version     = aws_rds_cluster.terraform-rds-cluster.engine_version
+}
+
+
+
+output "public_ip" {
+ value = aws_instance.ubuntu_instance.public_ip
+}
+
+
+
