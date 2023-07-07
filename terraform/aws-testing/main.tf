@@ -55,14 +55,6 @@ resource "aws_instance" "ubuntu_instance" {
   EOF
 }
 
-# Output the public IP of the Ubuntu instance
-output "public_ip" {
-  value = aws_instance.ubuntu_instance.public_ip
-}
-
-
-
-
 
 ## RDS Cluster with 2 instance 
 resource "aws_rds_cluster" "terraform-rds-cluster" {
@@ -92,6 +84,7 @@ resource "aws_rds_cluster_instance" "rds_instance" {
 
 
 
+# Output the public IP of the Ubuntu instance
 output "public_ip" {
  value = aws_instance.ubuntu_instance.public_ip
 }
