@@ -9,7 +9,7 @@ Use of this code is to deploy cloud components  on AWS cloud
 ## What will happen when deployment calls terraform code? 
 
 * A security group is configured
-* EC2 instance is configured
+* EC2 instance is configured and security group is attached with EC2 instance allowing SSH'ing into ubuntu instance with keypair already created 
 * AWS Transit Gateway is configured
 * Aurora database is configured
 * A lambda function is created with nodejs function. Reaching lambda function on public interface will provide classic 'hello world' output
