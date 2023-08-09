@@ -12,3 +12,4 @@ Use of this code is to deploy cloud components  on AWS cloud
 * EC2 instance is configured
 * AWS Transit Gateway is configured
 * Aurora database is configured
+* A lambda function is created with nodejs function. Reaching lambda function on public interface will provide classic 'hello world' output
