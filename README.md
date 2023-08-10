@@ -13,3 +13,11 @@ Use of this code is to deploy cloud components  on AWS cloud
 * AWS Transit Gateway is configured
 * Aurora database is configured
 * A lambda function is created with nodejs function. Reaching lambda function on public interface will provide classic 'hello world' output
+
+## Testing
+* List lambda function:  `aws lambda list-functions --region us-east-1 | jq -r '.Functions[].FunctionName' |cat -n`
+* Execute lambda funciton : `aws lambda invoke --region=us-east-1 --function-name=ServerlessExample output.txt`
+  Note: lambda function name is : ServerlessExample
+* Logging into Ubuntu instance : ssh -i ~/aws-key-pair.pem ubuntu@public-ip-address-of-ec2
+  
+  
